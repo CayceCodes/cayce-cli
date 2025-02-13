@@ -12,7 +12,7 @@
     "@oclif/plugin-help": "^6",
     "@oclif/plugin-plugins": "^5",
     "sourceloupe": "^0.0.37",
-    "sourceloupe-types": "sourceloupe-types",
+    "sourceloupe-types": "^1.0.0",
     "tree-sitter": "^0.22.4"
   },
   "devDependencies": {

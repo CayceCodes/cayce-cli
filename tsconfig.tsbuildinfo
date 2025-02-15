@@ -1,1 +1,1 @@
-{"root":["./src/index.ts","./src/builtinrules/built-in-rules.ts","./src/commands/scan.ts"],"errors":true,"version":"5.7.3"}
+{"root":["./src/index.ts","./src/plugin-loader.ts","./src/builtinrules/built-in-rules.ts","./src/commands/scan.ts"],"errors":true,"version":"5.7.3"}

@@ -29,10 +29,7 @@ export default class Scan extends Command {
 
   public async run(): Promise<void> {
     const {flags} = await this.parse(Scan)
-    console.log('Scanning directory:', flags.directory);
     await this.setFormatter(this.validateOutputFormat(flags.formatter));
-    console.log('Using formatter:', flags.formatter);
-    // Because we've marked the directory flag as required, we can be sure it will be set.
 
     const filesToScan = await this.buildFileList(flags.directory!, '**/*.cls');
     const pluginLoader = new PluginLoader('./');
@@ -40,7 +37,7 @@ export default class Scan extends Command {
     const namesSet = new Set(flags.name);
     const categoriesSet = new Set(flags.category);
     const loadedRules = pluginLoader.getAllRules() as ScanRule[];
-    console.log('Loaded Rules:', loadedRules);
+
     const filteredRules = this.applyFilters(loadedRules, namesSet, categoriesSet);
     // Create an array of scanner promises
     const scanPromises = filesToScan.map(async file => {

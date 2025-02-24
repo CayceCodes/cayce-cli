@@ -11,8 +11,8 @@
     "@oclif/core": "^4",
     "@oclif/plugin-help": "^6",
     "@oclif/plugin-plugins": "^5",
-    "sourceloupe": "^0.0.46",
-    "sourceloupe-types": "^1.0.0",
+    "sourceloupe": "^0.0.47",
+    "sourceloupe-types": "^1.0.12",
     "tree-sitter": "^0.22.4"
   },
   "devDependencies": {
@@ -22,7 +22,7 @@
     "@types/mocha": "^10",
     "@types/node": "^22",
     "chai": "^5",
-    "eslint": "^9",
+    "eslint": "^9.21.0",
     "eslint-config-oclif": "^6",
     "eslint-config-oclif-typescript": "^3",
     "eslint-config-prettier": "^10",
@@ -30,7 +30,7 @@
     "oclif": "^4",
     "shx": "^0.3.4",
     "ts-node": "^10",
-    "typescript": "^5"
+    "typescript": "^5.7.3"
   },
   "engines": {
     "node": ">=18.0.0"

@@ -1,7 +1,7 @@
 {
   "name": "sourceloupe-cli",
   "description": "A CLI interface to SourceLoupe, the most excellent Apex Static Code Analysis tool built with tree-sitter",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "Codefriar (Kevin Poorman)",
   "bin": {
     "sl": "./bin/run.js"

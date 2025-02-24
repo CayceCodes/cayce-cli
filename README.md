@@ -20,7 +20,7 @@ $ npm install -g sourceloupe-cli
 $ sl COMMAND
 running command...
 $ sl (--version)
-sourceloupe-cli/0.0.0 darwin-arm64 node-v22.14.0
+sourceloupe-cli/0.0.1 darwin-arm64 node-v22.14.0
 $ sl --help [COMMAND]
 USAGE
   $ sl COMMAND
@@ -373,5 +373,5 @@ EXAMPLES
   $ sl scan -d ./src -f "no-console" -f "no-debugger"
 ```
 
-_See code: [src/commands/scan.ts](https://github.com/codefriar/sourceloupe-cli/blob/v0.0.0/src/commands/scan.ts)_
+_See code: [src/commands/scan.ts](https://github.com/codefriar/sourceloupe-cli/blob/v0.0.1/src/commands/scan.ts)_
 <!-- commandsstop -->

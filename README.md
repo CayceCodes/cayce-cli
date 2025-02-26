@@ -16,39 +16,39 @@ A CLI interface to SourceLoupe, the most excellent Apex Static Code Analysis too
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g sourceloupe-cli
-$ sl COMMAND
+$ npm install -g cayce-cli
+$ sloupe COMMAND
 running command...
-$ sl (--version)
-sourceloupe-cli/0.0.1 darwin-arm64 node-v22.14.0
-$ sl --help [COMMAND]
+$ sloupe (--version)
+cayce-cli/0.0.1 darwin-arm64 node-v22.14.0
+$ sloupe --help [COMMAND]
 USAGE
-  $ sl COMMAND
+  $ sloupe COMMAND
 ...
 ```
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`sl help [COMMAND]`](#sl-help-command)
-* [`sl plugins`](#sl-plugins)
-* [`sl plugins add PLUGIN`](#sl-plugins-add-plugin)
-* [`sl plugins:inspect PLUGIN...`](#sl-pluginsinspect-plugin)
-* [`sl plugins install PLUGIN`](#sl-plugins-install-plugin)
-* [`sl plugins link PATH`](#sl-plugins-link-path)
-* [`sl plugins remove [PLUGIN]`](#sl-plugins-remove-plugin)
-* [`sl plugins reset`](#sl-plugins-reset)
-* [`sl plugins uninstall [PLUGIN]`](#sl-plugins-uninstall-plugin)
-* [`sl plugins unlink [PLUGIN]`](#sl-plugins-unlink-plugin)
-* [`sl plugins update`](#sl-plugins-update)
-* [`sl scan`](#sl-scan)
+* [`sloupe help [COMMAND]`](#sloupe-help-command)
+* [`sloupe plugins`](#sloupe-plugins)
+* [`sloupe plugins add PLUGIN`](#sloupe-plugins-add-plugin)
+* [`sloupe plugins:inspect PLUGIN...`](#sloupe-pluginsinspect-plugin)
+* [`sloupe plugins install PLUGIN`](#sloupe-plugins-install-plugin)
+* [`sloupe plugins link PATH`](#sloupe-plugins-link-path)
+* [`sloupe plugins remove [PLUGIN]`](#sloupe-plugins-remove-plugin)
+* [`sloupe plugins reset`](#sloupe-plugins-reset)
+* [`sloupe plugins uninstall [PLUGIN]`](#sloupe-plugins-uninstall-plugin)
+* [`sloupe plugins unlink [PLUGIN]`](#sloupe-plugins-unlink-plugin)
+* [`sloupe plugins update`](#sloupe-plugins-update)
+* [`sloupe scan`](#sloupe-scan)
 
-## `sl help [COMMAND]`
+## `sloupe help [COMMAND]`
 
-Display help for sl.
+Display help for sloupe.
 
 ```
 USAGE
-  $ sl help [COMMAND...] [-n]
+  $ sloupe help [COMMAND...] [-n]
 
 ARGUMENTS
   COMMAND...  Command to show help for.
@@ -57,18 +57,18 @@ FLAGS
   -n, --nested-commands  Include all nested commands in the output.
 
 DESCRIPTION
-  Display help for sl.
+  Display help for sloupe.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.2.25/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.2.26/src/commands/help.ts)_
 
-## `sl plugins`
+## `sloupe plugins`
 
 List installed plugins.
 
 ```
 USAGE
-  $ sl plugins [--json] [--core]
+  $ sloupe plugins [--json] [--core]
 
 FLAGS
   --core  Show core plugins.
@@ -80,18 +80,18 @@ DESCRIPTION
   List installed plugins.
 
 EXAMPLES
-  $ sl plugins
+  $ sloupe plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.31/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.34/src/commands/plugins/index.ts)_
 
-## `sl plugins add PLUGIN`
+## `sloupe plugins add PLUGIN`
 
-Installs a plugin into sl.
+Installs a plugin into sloupe.
 
 ```
 USAGE
-  $ sl plugins add PLUGIN... [--json] [-f] [-h] [-s | -v]
+  $ sloupe plugins add PLUGIN... [--json] [-f] [-h] [-s | -v]
 
 ARGUMENTS
   PLUGIN...  Plugin to install.
@@ -106,39 +106,39 @@ GLOBAL FLAGS
   --json  Format output as json.
 
 DESCRIPTION
-  Installs a plugin into sl.
+  Installs a plugin into sloupe.
 
   Uses npm to install plugins.
 
   Installation of a user-installed plugin will override a core plugin.
 
-  Use the SL_NPM_LOG_LEVEL environment variable to set the npm loglevel.
-  Use the SL_NPM_REGISTRY environment variable to set the npm registry.
+  Use the SLOUPE_NPM_LOG_LEVEL environment variable to set the npm loglevel.
+  Use the SLOUPE_NPM_REGISTRY environment variable to set the npm registry.
 
 ALIASES
-  $ sl plugins add
+  $ sloupe plugins add
 
 EXAMPLES
   Install a plugin from npm registry.
 
-    $ sl plugins add myplugin
+    $ sloupe plugins add myplugin
 
   Install a plugin from a github url.
 
-    $ sl plugins add https://github.com/someuser/someplugin
+    $ sloupe plugins add https://github.com/someuser/someplugin
 
   Install a plugin from a github slug.
 
-    $ sl plugins add someuser/someplugin
+    $ sloupe plugins add someuser/someplugin
 ```
 
-## `sl plugins:inspect PLUGIN...`
+## `sloupe plugins:inspect PLUGIN...`
 
 Displays installation properties of a plugin.
 
 ```
 USAGE
-  $ sl plugins inspect PLUGIN...
+  $ sloupe plugins inspect PLUGIN...
 
 ARGUMENTS
   PLUGIN...  [default: .] Plugin to inspect.
@@ -154,18 +154,18 @@ DESCRIPTION
   Displays installation properties of a plugin.
 
 EXAMPLES
-  $ sl plugins inspect myplugin
+  $ sloupe plugins inspect myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.31/src/commands/plugins/inspect.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.34/src/commands/plugins/inspect.ts)_
 
-## `sl plugins install PLUGIN`
+## `sloupe plugins install PLUGIN`
 
-Installs a plugin into sl.
+Installs a plugin into sloupe.
 
 ```
 USAGE
-  $ sl plugins install PLUGIN... [--json] [-f] [-h] [-s | -v]
+  $ sloupe plugins install PLUGIN... [--json] [-f] [-h] [-s | -v]
 
 ARGUMENTS
   PLUGIN...  Plugin to install.
@@ -180,41 +180,41 @@ GLOBAL FLAGS
   --json  Format output as json.
 
 DESCRIPTION
-  Installs a plugin into sl.
+  Installs a plugin into sloupe.
 
   Uses npm to install plugins.
 
   Installation of a user-installed plugin will override a core plugin.
 
-  Use the SL_NPM_LOG_LEVEL environment variable to set the npm loglevel.
-  Use the SL_NPM_REGISTRY environment variable to set the npm registry.
+  Use the SLOUPE_NPM_LOG_LEVEL environment variable to set the npm loglevel.
+  Use the SLOUPE_NPM_REGISTRY environment variable to set the npm registry.
 
 ALIASES
-  $ sl plugins add
+  $ sloupe plugins add
 
 EXAMPLES
   Install a plugin from npm registry.
 
-    $ sl plugins install myplugin
+    $ sloupe plugins install myplugin
 
   Install a plugin from a github url.
 
-    $ sl plugins install https://github.com/someuser/someplugin
+    $ sloupe plugins install https://github.com/someuser/someplugin
 
   Install a plugin from a github slug.
 
-    $ sl plugins install someuser/someplugin
+    $ sloupe plugins install someuser/someplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.31/src/commands/plugins/install.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.34/src/commands/plugins/install.ts)_
 
-## `sl plugins link PATH`
+## `sloupe plugins link PATH`
 
 Links a plugin into the CLI for development.
 
 ```
 USAGE
-  $ sl plugins link PATH [-h] [--install] [-v]
+  $ sloupe plugins link PATH [-h] [--install] [-v]
 
 ARGUMENTS
   PATH  [default: .] path to plugin
@@ -234,18 +234,18 @@ DESCRIPTION
 
 
 EXAMPLES
-  $ sl plugins link myplugin
+  $ sloupe plugins link myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.31/src/commands/plugins/link.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.34/src/commands/plugins/link.ts)_
 
-## `sl plugins remove [PLUGIN]`
+## `sloupe plugins remove [PLUGIN]`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ sl plugins remove [PLUGIN...] [-h] [-v]
+  $ sloupe plugins remove [PLUGIN...] [-h] [-v]
 
 ARGUMENTS
   PLUGIN...  plugin to uninstall
@@ -258,35 +258,35 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ sl plugins unlink
-  $ sl plugins remove
+  $ sloupe plugins unlink
+  $ sloupe plugins remove
 
 EXAMPLES
-  $ sl plugins remove myplugin
+  $ sloupe plugins remove myplugin
 ```
 
-## `sl plugins reset`
+## `sloupe plugins reset`
 
 Remove all user-installed and linked plugins.
 
 ```
 USAGE
-  $ sl plugins reset [--hard] [--reinstall]
+  $ sloupe plugins reset [--hard] [--reinstall]
 
 FLAGS
   --hard       Delete node_modules and package manager related files in addition to uninstalling plugins.
   --reinstall  Reinstall all plugins after uninstalling.
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.31/src/commands/plugins/reset.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.34/src/commands/plugins/reset.ts)_
 
-## `sl plugins uninstall [PLUGIN]`
+## `sloupe plugins uninstall [PLUGIN]`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ sl plugins uninstall [PLUGIN...] [-h] [-v]
+  $ sloupe plugins uninstall [PLUGIN...] [-h] [-v]
 
 ARGUMENTS
   PLUGIN...  plugin to uninstall
@@ -299,22 +299,22 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ sl plugins unlink
-  $ sl plugins remove
+  $ sloupe plugins unlink
+  $ sloupe plugins remove
 
 EXAMPLES
-  $ sl plugins uninstall myplugin
+  $ sloupe plugins uninstall myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.31/src/commands/plugins/uninstall.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.34/src/commands/plugins/uninstall.ts)_
 
-## `sl plugins unlink [PLUGIN]`
+## `sloupe plugins unlink [PLUGIN]`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ sl plugins unlink [PLUGIN...] [-h] [-v]
+  $ sloupe plugins unlink [PLUGIN...] [-h] [-v]
 
 ARGUMENTS
   PLUGIN...  plugin to uninstall
@@ -327,20 +327,20 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ sl plugins unlink
-  $ sl plugins remove
+  $ sloupe plugins unlink
+  $ sloupe plugins remove
 
 EXAMPLES
-  $ sl plugins unlink myplugin
+  $ sloupe plugins unlink myplugin
 ```
 
-## `sl plugins update`
+## `sloupe plugins update`
 
 Update installed plugins.
 
 ```
 USAGE
-  $ sl plugins update [-h] [-v]
+  $ sloupe plugins update [-h] [-v]
 
 FLAGS
   -h, --help     Show CLI help.
@@ -350,15 +350,15 @@ DESCRIPTION
   Update installed plugins.
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.31/src/commands/plugins/update.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.34/src/commands/plugins/update.ts)_
 
-## `sl scan`
+## `sloupe scan`
 
 This command executes the scanner on the specified directory
 
 ```
 USAGE
-  $ sl scan -d <value> [-n <value>...] [-c <value>...] [-r <value>]
+  $ sloupe scan -d <value> [-c <value>...] [-r <value>] [-n <value>...]
 
 FLAGS
   -c, --category=<value>...  only execute rules matching by category
@@ -370,8 +370,8 @@ DESCRIPTION
   This command executes the scanner on the specified directory
 
 EXAMPLES
-  $ sl scan -d ./src -f "no-console" -f "no-debugger"
+  $ sloupe scan -d ./src -f "no-console" -f "no-debugger"
 ```
 
-_See code: [src/commands/scan.ts](https://github.com/codefriar/sourceloupe-cli/blob/v0.0.1/src/commands/scan.ts)_
+_See code: [src/commands/scan.ts](https://github.com/CayceCodes/cayce-cli/blob/v0.0.1/src/commands/scan.ts)_
 <!-- commandsstop -->

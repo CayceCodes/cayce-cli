@@ -1,21 +1,22 @@
 {
-  "name": "sourceloupe-cli",
-  "description": "A CLI interface to SourceLoupe, the most excellent Apex Static Code Analysis tool built with tree-sitter",
+  "name": "cayce-cli",
+  "description": "A CLI interface to cayce, the most excellent Apex Static Code Analysis tool built with tree-sitter",
   "version": "0.0.1",
   "author": "Codefriar (Kevin Poorman)",
   "bin": {
-    "sloupe": "./bin/run.js"
+    "cayce": "./bin/run.js"
   },
-  "bugs": "https://github.com/codefriar/sourceloupe-cli/issues",
+  "bugs": "https://github.com/CayceCodes/cayce-cli/issues",
   "dependencies": {
     "@oclif/core": "^4",
     "@oclif/plugin-help": "^6",
     "@oclif/plugin-plugins": "^5",
-    "sourceloupe": "^0.0.47",
-    "sourceloupe-types": "^1.0.12",
+    "cayce-core": "^1.0.0",
+    "cayce-types": "^1.0.12",
     "tree-sitter": "^0.22.4"
   },
   "devDependencies": {
+    "@eslint/js": "^9.20.0",
     "@oclif/prettier-config": "^0.2.1",
     "@oclif/test": "^4",
     "@types/chai": "^5",
@@ -24,13 +25,17 @@
     "chai": "^5",
     "eslint": "^9.21.0",
     "eslint-config-oclif": "^6",
+    "globals": "^16.0.0",
     "eslint-config-oclif-typescript": "^3",
     "eslint-config-prettier": "^10",
+    "@typescript-eslint/eslint-plugin": "^8.24.0",
+    "@typescript-eslint/parser": "^8.24.0",
     "mocha": "^11",
     "oclif": "^4",
     "shx": "^0.3.4",
     "ts-node": "^10",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.1"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -40,7 +45,7 @@
     "/dist",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/codefriar/sourceloupe-cli",
+  "homepage": "https://github.com/CayceCodes/cayce-cli",
   "keywords": [
     "oclif"
   ],
@@ -62,10 +67,11 @@
       }
     }
   },
-  "repository": "codefriar/sourceloupe-cli",
+  "repository": "CayceCodes/cayce-cli",
   "scripts": {
     "build": "shx rm -rf dist && tsc -b",
-    "lint": "eslint . --ext .ts",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write \"src/**/*.ts\"",
     "postpack": "shx rm -f oclif.manifest.json",
     "posttest": "npm run lint",
     "prepack": "oclif manifest && oclif readme",

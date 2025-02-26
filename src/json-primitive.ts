@@ -1,3 +1,9 @@
-type JSONValue = string | number | boolean | null | JSONValue[] | { [key: string]: JSONValue };
+type JSONValue = boolean | JSONValue[] | null | number | string | {[key: string]: JSONValue}
 
-export type JSONObject = Record<string, JSONValue>;
+export type JSONObject = Record<string, JSONValue>
+
+export interface PackageJSON {
+  dependencies?: JSONObject
+  devDependencies?: JSONObject
+  name?: string
+}

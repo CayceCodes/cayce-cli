@@ -20,7 +20,7 @@ $ npm install -g cayce-cli
 $ sloupe COMMAND
 running command...
 $ sloupe (--version)
-cayce-cli/0.0.1 darwin-arm64 node-v22.14.0
+cayce-cli/0.0.2 darwin-arm64 node-v22.14.0
 $ sloupe --help [COMMAND]
 USAGE
   $ sloupe COMMAND
@@ -373,5 +373,5 @@ EXAMPLES
   $ sloupe scan -d ./src -f "no-console" -f "no-debugger"
 ```
 
-_See code: [src/commands/scan.ts](https://github.com/CayceCodes/cayce-cli/blob/v0.0.1/src/commands/scan.ts)_
+_See code: [src/commands/scan.ts](https://github.com/CayceCodes/cayce-cli/blob/v0.0.2/src/commands/scan.ts)_
 <!-- commandsstop -->

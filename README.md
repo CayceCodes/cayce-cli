@@ -17,38 +17,38 @@ A CLI interface to SourceLoupe, the most excellent Apex Static Code Analysis too
 <!-- usage -->
 ```sh-session
 $ npm install -g cayce-cli
-$ sloupe COMMAND
+$ cayce COMMAND
 running command...
-$ sloupe (--version)
-cayce-cli/0.0.2 darwin-arm64 node-v22.14.0
-$ sloupe --help [COMMAND]
+$ cayce (--version)
+cayce-cli/0.0.4 darwin-arm64 node-v22.14.0
+$ cayce --help [COMMAND]
 USAGE
-  $ sloupe COMMAND
+  $ cayce COMMAND
 ...
 ```
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`sloupe help [COMMAND]`](#sloupe-help-command)
-* [`sloupe plugins`](#sloupe-plugins)
-* [`sloupe plugins add PLUGIN`](#sloupe-plugins-add-plugin)
-* [`sloupe plugins:inspect PLUGIN...`](#sloupe-pluginsinspect-plugin)
-* [`sloupe plugins install PLUGIN`](#sloupe-plugins-install-plugin)
-* [`sloupe plugins link PATH`](#sloupe-plugins-link-path)
-* [`sloupe plugins remove [PLUGIN]`](#sloupe-plugins-remove-plugin)
-* [`sloupe plugins reset`](#sloupe-plugins-reset)
-* [`sloupe plugins uninstall [PLUGIN]`](#sloupe-plugins-uninstall-plugin)
-* [`sloupe plugins unlink [PLUGIN]`](#sloupe-plugins-unlink-plugin)
-* [`sloupe plugins update`](#sloupe-plugins-update)
-* [`sloupe scan`](#sloupe-scan)
+* [`cayce help [COMMAND]`](#cayce-help-command)
+* [`cayce plugins`](#cayce-plugins)
+* [`cayce plugins add PLUGIN`](#cayce-plugins-add-plugin)
+* [`cayce plugins:inspect PLUGIN...`](#cayce-pluginsinspect-plugin)
+* [`cayce plugins install PLUGIN`](#cayce-plugins-install-plugin)
+* [`cayce plugins link PATH`](#cayce-plugins-link-path)
+* [`cayce plugins remove [PLUGIN]`](#cayce-plugins-remove-plugin)
+* [`cayce plugins reset`](#cayce-plugins-reset)
+* [`cayce plugins uninstall [PLUGIN]`](#cayce-plugins-uninstall-plugin)
+* [`cayce plugins unlink [PLUGIN]`](#cayce-plugins-unlink-plugin)
+* [`cayce plugins update`](#cayce-plugins-update)
+* [`cayce scan`](#cayce-scan)
 
-## `sloupe help [COMMAND]`
+## `cayce help [COMMAND]`
 
-Display help for sloupe.
+Display help for cayce.
 
 ```
 USAGE
-  $ sloupe help [COMMAND...] [-n]
+  $ cayce help [COMMAND...] [-n]
 
 ARGUMENTS
   COMMAND...  Command to show help for.
@@ -57,18 +57,18 @@ FLAGS
   -n, --nested-commands  Include all nested commands in the output.
 
 DESCRIPTION
-  Display help for sloupe.
+  Display help for cayce.
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.2.26/src/commands/help.ts)_
 
-## `sloupe plugins`
+## `cayce plugins`
 
 List installed plugins.
 
 ```
 USAGE
-  $ sloupe plugins [--json] [--core]
+  $ cayce plugins [--json] [--core]
 
 FLAGS
   --core  Show core plugins.
@@ -80,18 +80,18 @@ DESCRIPTION
   List installed plugins.
 
 EXAMPLES
-  $ sloupe plugins
+  $ cayce plugins
 ```
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.34/src/commands/plugins/index.ts)_
 
-## `sloupe plugins add PLUGIN`
+## `cayce plugins add PLUGIN`
 
-Installs a plugin into sloupe.
+Installs a plugin into cayce.
 
 ```
 USAGE
-  $ sloupe plugins add PLUGIN... [--json] [-f] [-h] [-s | -v]
+  $ cayce plugins add PLUGIN... [--json] [-f] [-h] [-s | -v]
 
 ARGUMENTS
   PLUGIN...  Plugin to install.
@@ -106,39 +106,39 @@ GLOBAL FLAGS
   --json  Format output as json.
 
 DESCRIPTION
-  Installs a plugin into sloupe.
+  Installs a plugin into cayce.
 
   Uses npm to install plugins.
 
   Installation of a user-installed plugin will override a core plugin.
 
-  Use the SLOUPE_NPM_LOG_LEVEL environment variable to set the npm loglevel.
-  Use the SLOUPE_NPM_REGISTRY environment variable to set the npm registry.
+  Use the CAYCE_NPM_LOG_LEVEL environment variable to set the npm loglevel.
+  Use the CAYCE_NPM_REGISTRY environment variable to set the npm registry.
 
 ALIASES
-  $ sloupe plugins add
+  $ cayce plugins add
 
 EXAMPLES
   Install a plugin from npm registry.
 
-    $ sloupe plugins add myplugin
+    $ cayce plugins add myplugin
 
   Install a plugin from a github url.
 
-    $ sloupe plugins add https://github.com/someuser/someplugin
+    $ cayce plugins add https://github.com/someuser/someplugin
 
   Install a plugin from a github slug.
 
-    $ sloupe plugins add someuser/someplugin
+    $ cayce plugins add someuser/someplugin
 ```
 
-## `sloupe plugins:inspect PLUGIN...`
+## `cayce plugins:inspect PLUGIN...`
 
 Displays installation properties of a plugin.
 
 ```
 USAGE
-  $ sloupe plugins inspect PLUGIN...
+  $ cayce plugins inspect PLUGIN...
 
 ARGUMENTS
   PLUGIN...  [default: .] Plugin to inspect.
@@ -154,18 +154,18 @@ DESCRIPTION
   Displays installation properties of a plugin.
 
 EXAMPLES
-  $ sloupe plugins inspect myplugin
+  $ cayce plugins inspect myplugin
 ```
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.34/src/commands/plugins/inspect.ts)_
 
-## `sloupe plugins install PLUGIN`
+## `cayce plugins install PLUGIN`
 
-Installs a plugin into sloupe.
+Installs a plugin into cayce.
 
 ```
 USAGE
-  $ sloupe plugins install PLUGIN... [--json] [-f] [-h] [-s | -v]
+  $ cayce plugins install PLUGIN... [--json] [-f] [-h] [-s | -v]
 
 ARGUMENTS
   PLUGIN...  Plugin to install.
@@ -180,41 +180,41 @@ GLOBAL FLAGS
   --json  Format output as json.
 
 DESCRIPTION
-  Installs a plugin into sloupe.
+  Installs a plugin into cayce.
 
   Uses npm to install plugins.
 
   Installation of a user-installed plugin will override a core plugin.
 
-  Use the SLOUPE_NPM_LOG_LEVEL environment variable to set the npm loglevel.
-  Use the SLOUPE_NPM_REGISTRY environment variable to set the npm registry.
+  Use the CAYCE_NPM_LOG_LEVEL environment variable to set the npm loglevel.
+  Use the CAYCE_NPM_REGISTRY environment variable to set the npm registry.
 
 ALIASES
-  $ sloupe plugins add
+  $ cayce plugins add
 
 EXAMPLES
   Install a plugin from npm registry.
 
-    $ sloupe plugins install myplugin
+    $ cayce plugins install myplugin
 
   Install a plugin from a github url.
 
-    $ sloupe plugins install https://github.com/someuser/someplugin
+    $ cayce plugins install https://github.com/someuser/someplugin
 
   Install a plugin from a github slug.
 
-    $ sloupe plugins install someuser/someplugin
+    $ cayce plugins install someuser/someplugin
 ```
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.34/src/commands/plugins/install.ts)_
 
-## `sloupe plugins link PATH`
+## `cayce plugins link PATH`
 
 Links a plugin into the CLI for development.
 
 ```
 USAGE
-  $ sloupe plugins link PATH [-h] [--install] [-v]
+  $ cayce plugins link PATH [-h] [--install] [-v]
 
 ARGUMENTS
   PATH  [default: .] path to plugin
@@ -234,18 +234,18 @@ DESCRIPTION
 
 
 EXAMPLES
-  $ sloupe plugins link myplugin
+  $ cayce plugins link myplugin
 ```
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.34/src/commands/plugins/link.ts)_
 
-## `sloupe plugins remove [PLUGIN]`
+## `cayce plugins remove [PLUGIN]`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ sloupe plugins remove [PLUGIN...] [-h] [-v]
+  $ cayce plugins remove [PLUGIN...] [-h] [-v]
 
 ARGUMENTS
   PLUGIN...  plugin to uninstall
@@ -258,20 +258,20 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ sloupe plugins unlink
-  $ sloupe plugins remove
+  $ cayce plugins unlink
+  $ cayce plugins remove
 
 EXAMPLES
-  $ sloupe plugins remove myplugin
+  $ cayce plugins remove myplugin
 ```
 
-## `sloupe plugins reset`
+## `cayce plugins reset`
 
 Remove all user-installed and linked plugins.
 
 ```
 USAGE
-  $ sloupe plugins reset [--hard] [--reinstall]
+  $ cayce plugins reset [--hard] [--reinstall]
 
 FLAGS
   --hard       Delete node_modules and package manager related files in addition to uninstalling plugins.
@@ -280,13 +280,13 @@ FLAGS
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.34/src/commands/plugins/reset.ts)_
 
-## `sloupe plugins uninstall [PLUGIN]`
+## `cayce plugins uninstall [PLUGIN]`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ sloupe plugins uninstall [PLUGIN...] [-h] [-v]
+  $ cayce plugins uninstall [PLUGIN...] [-h] [-v]
 
 ARGUMENTS
   PLUGIN...  plugin to uninstall
@@ -299,22 +299,22 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ sloupe plugins unlink
-  $ sloupe plugins remove
+  $ cayce plugins unlink
+  $ cayce plugins remove
 
 EXAMPLES
-  $ sloupe plugins uninstall myplugin
+  $ cayce plugins uninstall myplugin
 ```
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.34/src/commands/plugins/uninstall.ts)_
 
-## `sloupe plugins unlink [PLUGIN]`
+## `cayce plugins unlink [PLUGIN]`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ sloupe plugins unlink [PLUGIN...] [-h] [-v]
+  $ cayce plugins unlink [PLUGIN...] [-h] [-v]
 
 ARGUMENTS
   PLUGIN...  plugin to uninstall
@@ -327,20 +327,20 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ sloupe plugins unlink
-  $ sloupe plugins remove
+  $ cayce plugins unlink
+  $ cayce plugins remove
 
 EXAMPLES
-  $ sloupe plugins unlink myplugin
+  $ cayce plugins unlink myplugin
 ```
 
-## `sloupe plugins update`
+## `cayce plugins update`
 
 Update installed plugins.
 
 ```
 USAGE
-  $ sloupe plugins update [-h] [-v]
+  $ cayce plugins update [-h] [-v]
 
 FLAGS
   -h, --help     Show CLI help.
@@ -352,17 +352,18 @@ DESCRIPTION
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.34/src/commands/plugins/update.ts)_
 
-## `sloupe scan`
+## `cayce scan`
 
 This command executes the scanner on the specified directory
 
 ```
 USAGE
-  $ sloupe scan -d <value> [-c <value>...] [-r <value>] [-n <value>...]
+  $ cayce scan -d <value> [-g <value>] [-c <value>...] [-r <value>] [-n <value>...]
 
 FLAGS
   -c, --category=<value>...  only execute rules matching by category
   -d, --directory=<value>    (required) directory to scan
+  -g, --glob=<value>         [default: **/*.cls] glob pattern to match files
   -n, --name=<value>...      only execute rules matching by name
   -r, --formatter=<value>    [default: Csv] formatter to use for output
 
@@ -370,8 +371,8 @@ DESCRIPTION
   This command executes the scanner on the specified directory
 
 EXAMPLES
-  $ sloupe scan -d ./src -f "no-console" -f "no-debugger"
+  $ cayce scan -d ./src -f "no-console" -f "no-debugger"
 ```
 
-_See code: [src/commands/scan.ts](https://github.com/CayceCodes/cayce-cli/blob/v0.0.2/src/commands/scan.ts)_
+_See code: [src/commands/scan.ts](https://github.com/CayceCodes/cayce-cli/blob/v0.0.4/src/commands/scan.ts)_
 <!-- commandsstop -->

@@ -1,6 +1,7 @@
 import {Command, Flags} from '@oclif/core'
 import {Scanner, ScannerOptions} from 'cayce-core'
 import {Formatter, OutputFormat, ScanRule} from 'cayce-types'
+import cliProgress from 'cli-progress'
 import {glob} from 'glob'
 import path from 'node:path'
 
@@ -58,8 +59,23 @@ export default class Scan extends Command {
       const scanner = await Scanner.create(scanOptions)
       return scanner.run()
     })
+
+    const progressBar = new cliProgress.SingleBar({
+      barCompleteChar: '\u2588',
+      barIncompleteChar: '\u2591',
+      format: 'Scanning progress | {bar} | {percentage}% || {value}/{total} files',
+      hideCursor: true,
+    });
+    progressBar.start(filesToScan.length, 0);
+    const results = await Promise.all(
+        scanPromises.map(async (p) => {
+          const result = await p;
+          progressBar.increment();
+          return result;
+        })
+    );
+    progressBar.stop();
     // Wait for all scans to complete
-    const results = await Promise.all(scanPromises)
     const selectedOutputFormat: OutputFormat = this.validateOutputFormat(flags.formatter)
     const formatedResults = String(Scan.formatter.format(results.flat(), selectedOutputFormat))
     console.log(formatedResults)

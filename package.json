@@ -37,6 +37,7 @@
     "mocha": "^11",
     "oclif": "^4",
     "shx": "^0.3.4",
+    "sinon": "^19.0.2",
     "standard-version": "^9.5.0",
     "ts-node": "^10",
     "typescript": "^5.7.3",
@@ -85,7 +86,8 @@
     "prepack": "oclif manifest && oclif readme",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif readme && git add README.md",
-    "release": "standard-version && git push --follow-tags origin main && npm publish"
+    "release": "standard-version && git push --follow-tags origin main && npm publish",
+    "prepare": "husky"
   },
   "types": "dist/index.d.ts",
   "config": {

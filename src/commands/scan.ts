@@ -1,7 +1,6 @@
 import {Command, Flags} from '@oclif/core'
 import {Scanner, ScannerOptions} from 'cayce-core'
 import {Formatter, OutputFormat, ScanRule} from 'cayce-types'
-// eslint-disable-next-line n/no-extraneous-import
 import {glob} from 'glob'
 import path from 'node:path'
 
@@ -16,6 +15,8 @@ export default class Scan extends Command {
     // force: Flags.boolean({char: 'f'})
     directory: Flags.directory({char: 'd', description: 'directory to scan', required: true}),
     formatter: Flags.string({char: 'r', default: 'Csv', description: 'formatter to use for output', multiple: false}),
+    // the pattern used to find what files to scan.
+    glob: Flags.string({char: 'g', default: '**/*.cls', description: 'glob pattern to match files', multiple: false}),
     // filter to run just one rule at a time.
     name: Flags.string({char: 'n', description: 'only execute rules matching by name', multiple: true}),
   }
@@ -23,16 +24,31 @@ export default class Scan extends Command {
 
   public async run(): Promise<void> {
     const {flags} = await this.parse(Scan)
-    await this.setFormatter(this.validateOutputFormat(flags.formatter))
 
-    const filesToScan = await this.buildFileList(flags.directory, '**/*.cls')
+    await this.setFormatter(this.validateOutputFormat(flags.formatter))
+    const filesToScan = await this.buildFileList(flags.directory, flags.glob)
+
+    if(filesToScan.length === 0) {
+      console.error(`No files matching the glob pattern ${flags.glob} found to scan`)
+      return
+    }
+
     const pluginLoader = new PluginLoader('./')
     await pluginLoader.loadPlugins()
+
     const namesSet = new Set(flags.name)
     const categoriesSet = new Set(flags.category)
+
     const loadedRules = pluginLoader.getAllRules()
 
     const filteredRules = this.applyFilters(loadedRules, namesSet, categoriesSet)
+
+    // Sanity checks
+    if (filteredRules.length === 0) {
+      console.error('No rules found to scan')
+      return
+    }
+
     // Create an array of scanner promises
     const scanPromises = filesToScan.map(async (file) => {
       const scanOptions: ScannerOptions = {
@@ -42,11 +58,10 @@ export default class Scan extends Command {
       const scanner = await Scanner.create(scanOptions)
       return scanner.run()
     })
-
     // Wait for all scans to complete
     const results = await Promise.all(scanPromises)
     const selectedOutputFormat: OutputFormat = this.validateOutputFormat(flags.formatter)
-    const formatedResults = Scan.formatter.format(results.flat(), selectedOutputFormat)
+    const formatedResults = String(Scan.formatter.format(results.flat(), selectedOutputFormat))
     console.log(formatedResults)
   }
 

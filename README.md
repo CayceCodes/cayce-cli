@@ -20,7 +20,7 @@ $ npm install -g cayce-cli
 $ cayce COMMAND
 running command...
 $ cayce (--version)
-cayce-cli/0.0.4 darwin-arm64 node-v22.14.0
+cayce-cli/0.0.6 darwin-arm64 node-v22.14.0
 $ cayce --help [COMMAND]
 USAGE
   $ cayce COMMAND
@@ -358,7 +358,7 @@ This command executes the scanner on the specified directory
 
 ```
 USAGE
-  $ cayce scan -d <value> [-g <value>] [-c <value>...] [-r <value>] [-n <value>...]
+  $ cayce scan -d <value> [-c <value>...] [-r <value>] [-g <value>] [-n <value>...]
 
 FLAGS
   -c, --category=<value>...  only execute rules matching by category
@@ -374,5 +374,5 @@ EXAMPLES
   $ cayce scan -d ./src -f "no-console" -f "no-debugger"
 ```
 
-_See code: [src/commands/scan.ts](https://github.com/CayceCodes/cayce-cli/blob/v0.0.4/src/commands/scan.ts)_
+_See code: [src/commands/scan.ts](https://github.com/CayceCodes/cayce-cli/blob/v0.0.6/src/commands/scan.ts)_
 <!-- commandsstop -->

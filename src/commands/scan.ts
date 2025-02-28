@@ -76,6 +76,7 @@ export default class Scan extends Command {
     );
     progressBar.stop();
     // Wait for all scans to complete
+    console.dir(results)
     const selectedOutputFormat: OutputFormat = this.validateOutputFormat(flags.formatter)
     const formatedResults = String(Scan.formatter.format(results.flat(), selectedOutputFormat))
     console.log(formatedResults)

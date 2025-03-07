@@ -13,7 +13,7 @@ export default tseslint.config(
     tseslint.configs.recommendedTypeChecked,
     prettier,
     {
-        ignores: ['**/dist/**/*.+(js|ts)', '**/node_modules/**/*.+(js|ts)'],
+        ignores: ['**/dist/**/*.+(js|ts)', '**/node_modules/**/*.+(js|ts)', 'eslint.config.js'],
     },
     {
         files: ['**/*.ts', '**/*.tsx'],
@@ -22,6 +22,7 @@ export default tseslint.config(
                 ecmaVersion: 'latest',
                 sourceType: 'module',
                 projectService: true,
+
 // tsconfigRootDir: __dirname + '/src',
             },
             globals: {

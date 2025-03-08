@@ -1,6 +1,6 @@
 import {Command, Flags} from '@oclif/core'
 import {Scanner, ScannerOptions} from 'cayce-core'
-import {Formatter, OutputFormat, ScanRule} from 'cayce-types'
+import {Formatter, OutputFormat, ScanResult, ScanRule} from 'cayce-types'
 import cliProgress from 'cli-progress'
 import {glob} from 'glob'
 import path from 'node:path'
@@ -51,7 +51,7 @@ export default class Scan extends Command {
     }
 
     // Create an array of scanner promises
-    const scanPromises = filesToScan.map(async (file) => {
+    const scanPromises: Promise<ScanResult[]>[] = filesToScan.map(async (file) => {
       const scanOptions: ScannerOptions = {
         rules: filteredRules,
         sourcePath: file,
@@ -67,9 +67,9 @@ export default class Scan extends Command {
       hideCursor: true,
     });
     progressBar.start(filesToScan.length, 0);
-    const results = await Promise.all(
-        scanPromises.map(async (p) => {
-          const result = await p;
+    const results: ScanResult[][] = await Promise.all(
+        scanPromises.map(async (currentPromise: Promise<ScanResult[]>): Promise<ScanResult[]> => {
+          const result: ScanResult[] = await currentPromise;
           progressBar.increment();
           return result;
         })

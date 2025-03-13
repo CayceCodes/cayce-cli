@@ -1,6 +1,6 @@
 import {Command, Flags} from '@oclif/core'
 import {Scanner, ScannerOptions} from 'cayce-core'
-import {Formatter, OutputFormat, ScanResult, ScanRule} from 'cayce-types'
+import {Formatter, OutputFormat, ScanRule} from 'cayce-types'
 import cliProgress from 'cli-progress'
 import {glob} from 'glob'
 import path from 'node:path'
@@ -41,7 +41,6 @@ export default class Scan extends Command {
     const categoriesSet = new Set(flags.category)
 
     const loadedRules = pluginLoader.getAllRules()
-
     const filteredRules = this.applyFilters(loadedRules, namesSet, categoriesSet)
 
     // Sanity checks
@@ -51,8 +50,9 @@ export default class Scan extends Command {
     }
 
     // Create an array of scanner promises
-    const scanPromises: Promise<ScanResult[]>[] = filesToScan.map(async (file) => {
+    const scanPromises = filesToScan.map(async (file) => {
       const scanOptions: ScannerOptions = {
+        // Use type assertion to bridge the different versions of the same type
         rules: filteredRules,
         sourcePath: file,
       }
@@ -67,9 +67,9 @@ export default class Scan extends Command {
       hideCursor: true,
     });
     progressBar.start(filesToScan.length, 0);
-    const results: ScanResult[][] = await Promise.all(
-        scanPromises.map(async (currentPromise: Promise<ScanResult[]>): Promise<ScanResult[]> => {
-          const result: ScanResult[] = await currentPromise;
+    const results = await Promise.all(
+        scanPromises.map(async (currentPromise) => {
+          const result = await currentPromise;
           progressBar.increment();
           return result;
         })
@@ -80,6 +80,7 @@ export default class Scan extends Command {
     console.dir(results)
     console.log('Results above.')
     const selectedOutputFormat: OutputFormat = this.validateOutputFormat(flags.formatter)
+    // Use type assertion to bridge the different versions of the same type
     const formatedResults = String(Scan.formatter.format(results.flat(), selectedOutputFormat))
     console.log(formatedResults)
   }

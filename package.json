@@ -1,7 +1,7 @@
 {
   "name": "cayce-cli",
   "description": "A CLI interface to cayce, the most excellent Apex Static Code Analysis tool built with tree-sitter",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "author": "Codefriar (Kevin Poorman)",
   "bin": {
     "cayce": "bin/run.js"
@@ -11,8 +11,8 @@
     "@oclif/core": "^4",
     "@oclif/plugin-help": "^6",
     "@oclif/plugin-plugins": "^5",
-    "cayce-core": "file:../cayce-core",
-    "cayce-types": "^1.0.17",
+    "cayce-core": "^2.1.4",
+    "cayce-types": "^1.0.18",
     "cli-progress": "^3.12.0",
     "glob": "^11.0.1",
     "tree-sitter": "^0.22.4"

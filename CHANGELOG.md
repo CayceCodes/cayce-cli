@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/CayceCodes/cayce-cli/compare/v0.0.7...v0.0.8) (2025-03-19)
+
+
+### Features
+
+* **rule:** new rule structure updates. ([4e9c8aa](https://github.com/CayceCodes/cayce-cli/commit/4e9c8aa37ab051d95ab5ebc5df2d8dde9a854510))
+* **rule:** new rule structure updates. ([9240666](https://github.com/CayceCodes/cayce-cli/commit/9240666f16f8f26fe054ba9a6105ffa2276d198b))
+
 ### [0.0.7](https://github.com/CayceCodes/cayce-cli/compare/v0.0.6...v0.0.7) (2025-02-28)
 
 ### [0.0.6](https://github.com/CayceCodes/cayce-cli/compare/v0.0.5...v0.0.6) (2025-02-28)

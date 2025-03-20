@@ -6,7 +6,7 @@ import {
   name,
   ruleSeverity,
   RuleSeverity,
-  ScanResult,
+  ScanResultDigest,
   ScanRule,
   suggestion,
   treeQuery,
@@ -23,14 +23,7 @@ import {SyntaxNode} from 'tree-sitter'
 )
 @treeQuery('(method_declaration (identifier)@a)')
 export class MyRule extends ScanRule {
-  validateNodes(_nodes: SyntaxNode[]): ScanResult[] {
-    const result: ScanResult[] = []
-    for (const node of _nodes) {
-      if (node.text.length < 4) {
-        result.push(new ScanResult(this, node))
-      }
-    }
-
-    return result
+  validateNodes(_nodes: SyntaxNode[]): ScanResultDigest[] {
+    return []
   }
 }

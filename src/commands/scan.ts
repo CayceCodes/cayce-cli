@@ -20,13 +20,17 @@ export default class Scan extends Command {
     glob: Flags.string({char: 'g', default: '**/*.cls', description: 'glob pattern to match files', multiple: false}),
     // filter to run just one rule at a time.
     name: Flags.string({char: 'n', description: 'only execute rules matching by name', multiple: true}),
+    // filename to write results to
+    outputFilename: Flags.string({char: 'o', description: 'output filename', multiple: false, required: true}),
   }
   static formatter: Formatter<OutputFormat>
 
   public async run(): Promise<void> {
     const {flags} = await this.parse(Scan)
 
-    await this.setFormatter(this.validateOutputFormat(flags.formatter))
+    const selectedFormat = this.validateOutputFormat(flags.formatter)
+    await this.setFormatter(selectedFormat)
+
     const filesToScan = await this.buildFileList(flags.directory, flags.glob)
 
     if(filesToScan.length === 0) {
@@ -77,17 +81,16 @@ export default class Scan extends Command {
     progressBar.stop();
     console.log('Scan complete')
     // Wait for all scans to complete
-    console.dir(results)
-    console.log('Results above.')
-    const selectedOutputFormat: OutputFormat = this.validateOutputFormat(flags.formatter)
+
     // Use type assertion to bridge the different versions of the same type
-    const formatedResults = String(Scan.formatter.format(results.flat(), selectedOutputFormat))
-    console.log(formatedResults)
+    Scan.formatter.format(results.flat(), selectedFormat, flags.outputFilename)
+    // console.log(formatedResults)
+
   }
 
-  private applyFilters(rules: ScanRule[], names: Set<string>, categories: Set<string>): ScanRule[] {
+  private applyFilters(rules: ScanRule[], ids: Set<string>, categories: Set<string>): ScanRule[] {
     return rules.filter((rule) => {
-      if (names.size > 0 && !names.has(rule.Name)) {
+      if (ids.size > 0 && !ids.has(rule.Id)) {
         return false
       }
 
@@ -135,6 +138,7 @@ export default class Scan extends Command {
   }
 
   private validateOutputFormat(formatter: string): OutputFormat {
+    formatter = formatter.replace(/^./, char => char.toUpperCase())
     return OutputFormat[formatter as keyof typeof OutputFormat]
   }
 }

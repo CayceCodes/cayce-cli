@@ -20,7 +20,7 @@ $ npm install -g cayce-cli
 $ cayce COMMAND
 running command...
 $ cayce (--version)
-cayce-cli/0.0.7 darwin-arm64 node-v22.14.0
+cayce-cli/0.0.8 darwin-arm64 node-v22.14.0
 $ cayce --help [COMMAND]
 USAGE
   $ cayce COMMAND
@@ -358,14 +358,15 @@ This command executes the scanner on the specified directory
 
 ```
 USAGE
-  $ cayce scan -d <value> [-c <value>...] [-r <value>] [-g <value>] [-n <value>...]
+  $ cayce scan -d <value> -o <value> [-c <value>...] [-r <value>] [-g <value>] [-n <value>...]
 
 FLAGS
-  -c, --category=<value>...  only execute rules matching by category
-  -d, --directory=<value>    (required) directory to scan
-  -g, --glob=<value>         [default: **/*.cls] glob pattern to match files
-  -n, --name=<value>...      only execute rules matching by name
-  -r, --formatter=<value>    [default: Csv] formatter to use for output
+  -c, --category=<value>...     only execute rules matching by category
+  -d, --directory=<value>       (required) directory to scan
+  -g, --glob=<value>            [default: **/*.cls] glob pattern to match files
+  -n, --name=<value>...         only execute rules matching by name
+  -o, --outputFilename=<value>  (required) output filename
+  -r, --formatter=<value>       [default: Csv] formatter to use for output
 
 DESCRIPTION
   This command executes the scanner on the specified directory
@@ -374,5 +375,5 @@ EXAMPLES
   $ cayce scan -d ./src -f "no-console" -f "no-debugger"
 ```
 
-_See code: [src/commands/scan.ts](https://github.com/CayceCodes/cayce-cli/blob/v0.0.7/src/commands/scan.ts)_
+_See code: [src/commands/scan.ts](https://github.com/CayceCodes/cayce-cli/blob/v0.0.8/src/commands/scan.ts)_
 <!-- commandsstop -->
